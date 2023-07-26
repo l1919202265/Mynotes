@@ -306,19 +306,22 @@ Git支持多种协议，包括https，但ssh协议速度最快。
 
 ##### 查看分支：git branch
 
-创建分支：git branch 分支名
+*在哪个分支前,就表示当前在哪个分支
 
-创建了一个dev分支，dev是devlop的缩写，表示开发分支
+##### 创建分支：git branch 分支名
+
+git branch de 创建了一个dev分支，dev是devlop的缩写，表示开发分支
 
 我们接下来的程序会写在dev分支上，写完以后再合并到主分支中
 
-切换分支：
+##### 切换分支：
 
 ```css
-git switch name或者git checkout name  name表示分支名
+git switch name或者git checkout name  /*name表示分支名*/
+git switch dev	/*切换到dev分支*/
 ```
 
-创建+切换分支
+##### 创建并切换分支
 
 ```css
 git switch -c name或者git checkout -b name
@@ -329,7 +332,7 @@ git switch -c name或者git checkout -b name
 如果要把dev分支合并到master 需要先切换到master分支，因为合并是要把分支合并到当前分支
 
 ```css
-git merge name
+git merge dev
 ```
 
 例：
@@ -352,17 +355,25 @@ git merge name
 
 如：
 
-在dev分支中修改index.html,修改，提交
+在dev分支中修改index.html,修改，提交;
 
-dev分支修改：
-
-切换到main分支，继续修改index.html，修改，提交
+切换到master分支，继续修改index.html，修改，提交
 
 合并dev分支到main分支中，此时就会出现冲突
 
 两个分支同时修改一个文件，git不知道要使用哪一次提交
 
-Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，
+发生冲突时Git会显示标记更改的内容
+
+```html
+<<<<<<<HEAD(当前的更改)
+<h1>当前更改的内容</h1>
+=======
+<h1>传入的更改</h2>
+>>>>>>>dev(传入的更改)
+```
+
+
 
 解决方法，手动更改
 
@@ -401,6 +412,7 @@ Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，
 当团队成员从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。
 
 > git push -u origin master //向远程仓库origin 的master 分支提交代码
+>
 > git pull origin master //拉取远程仓库origin 的master 分支的代码
 
 要查看远程库的信息，用 git remote
