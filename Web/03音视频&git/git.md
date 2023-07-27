@@ -621,3 +621,34 @@ git push --force origin master
 git branch -d xxx——删除本地的xxx分支,该分支没有任何未提交的内容
 git branch -D xxx——删除本地的xxx分支,该分支存在未提交的内容，强制删除
 git push origin --delete xxx——删除远程仓库的xxx分支
+
+
+
+可能存在的问题
+```css
+1:$ git push origin master
+Username for 'https://github.com': li_magisk
+Password for 'https://li_magisk@github.com':
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/l1919202265/Mynotes.git/'
+
+
+
+此问题由于GitHub 在2021年8月13日删除了对密码身份验证的支持，并建议采用其他身份验证方式。这意味着你不能再使用密码直接进行对远程仓库的推送。
+
+为了解决这个问题，你可以考虑以下两种方法来完成身份验证：
+
+使用 SSH 密钥身份验证：使用 SSH 密钥进行身份验证是一个更安全和推荐的方式。首先，确保你已经生成了 SSH 密钥对，并将公钥添加到你的 GitHub 帐户中。然后，修改你的远程仓库的 URL，将其替换为 SSH URL。可以使用以下命令来修改 URL：
+
+git remote set-url origin git@github.com:l1919202265/Mynotes.git
+ 
+这将把远程仓库的 URL 修改为使用 SSH 协议进行身份验证。
+
+使用访问令牌（Personal Access Token）进行身份验证：如果你不打算使用 SSH 密钥进行身份验证，你可以生成一个访问令牌并将其用作密码。访问令牌是一个用于访问 GitHub API 的身份验证凭证。你可以在你的 GitHub 帐户的设置中生成一个访问令牌。生成令牌后，在执行  git push  命令时，使用生成的令牌替代密码即可。
+
+Username for 'https://github.com': li_magisk
+Password for 'https://li_magisk@github.com':
+ 
+这些输入提示是等待你输入 GitHub 的用户名和密码。因为现在不再支持直接使用密码进行身份验证，所以你需要使用其他方法进行身份验证。
+```
