@@ -1,3 +1,33 @@
+```css
+git --version
+git init
+git status
+git log
+git relog
+git branch
+git branch -r
+git branch -d
+git branch master
+git add .
+git commit -m 'first commit'
+git reset --hard HEAD^
+git reset --hard 33d9d598d
+git remote add origin https://....
+git remote remove origin https://.
+git push -u origin master
+git push orgin master
+git push
+git clone https://.......
+git switch master
+git checkout master
+git checkout -b dev
+git merge dev
+git pull origin master
+
+https://github.com/cfg1573/test2302NB
+
+```
+
 Git是目前世界上最先进的分布式版本控制系统(没有之一)
 
 Git有什么特点简单来说就是:高端大气上档次!
