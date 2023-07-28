@@ -621,3 +621,108 @@ git push --force origin master
 git branch -d xxx——删除本地的xxx分支,该分支没有任何未提交的内容
 git branch -D xxx——删除本地的xxx分支,该分支存在未提交的内容，强制删除
 git push origin --delete xxx——删除远程仓库的xxx分支
+
+```css
+/*使用 --allow-unrelated-histories 参数强制合并历史记录*/
+git pull origin master --allow-unrelated-histories
+```
+
+```css
+/*如果你想要强制覆盖推送到远程仓库，可以使用 --force 参数来执行 git push 命令。请确保在执行此操作之前，你已经备份了重要的代码和数据，因为强制覆盖推送会永久地替换远程仓库中的代码。*/
+git push --force origin master
+
+```
+
+
+
+
+
+> ——横线之前是命令
+>
+> ——横线之后是解释说明
+
+
+
+1.新建文件夹，上方文件地址栏输入cmd，打开命令行
+2.git init——初始化一个本地仓库
+3.git remote add origin git项目地址——本地仓库关联远程仓库（用http方式就行，ssh的话提前配置密钥）
+4.git fetch origin master——强制关联远程master分支
+5.git branch -r——查看远程仓库的所有分支
+
+> 以上项目代码就已经克隆下来了，并且关联了远程仓库，同步了所有分支，下面创建我们自己的分支
+
+
+
+6.git branch——查看本地的所有分支，绿色的字代表自己现在所在的分支
+7.git checkout master——切换到master分支上
+8.git checkout -b xxx——创建并切换到xxx分支上（xxx是你自定义的分支名）
+9.git push -u origin xxx——将自己的xxx分支推至远程仓库（第一次推加-u参数，后续再推就不用加了，推的时候自己要在当前的xxx分           支上）
+10.git status——查看当前状态，在哪个分支上，更改了那些文件
+11.git add .——将更改的文件内容添加到暂存区（注意不要少打这个.）
+12.git commit -m '备注更改内容'——提交到本地仓库
+13.git push origin xxx——推送至远程的xxx分支（第一次提交加-u参数）
+
+> 以上创建了自己的分支，更改内容，并提交到了远程仓库，下面同步测试分支
+
+
+
+14.git checkout master----切换至master分支
+15.git checkout -b dev origin/dev——创建并切换到dev分支，并且同步远程的dev分支
+16.git pull origin dev——合并之前，现将远程的dev拉下来一下，以免有其他人推送过新功能
+17.git merge xxx——合并xxx分支代码（注意：要往哪个分支上合并，就先切换到哪个分支上）
+18.git push origin dev——推送到远程的dev分支
+
+> 同理：推送到master分支
+
+
+
+19.git checkout master——切换至master分支
+20.git pull origin master——拉下远程master分支的新代码
+21.git merge xxx——将自己的xxx分支合并到master
+22.git push origin master——推送至远程master
+
+> 拉取别人分支
+> 如果要拉取别人的分支，但git branch -r 发现远程并没有别人的这个分支
+
+
+
+23.git remote update origin --prune——同步远程仓库的所有分支，这样可以拉别人的分支一起开发
+
+
+
+> 最后：删除自己的本地分支和删除远程仓库的分支（要删除哪个分支，当前就不能在这个分支上）
+
+git branch -d xxx——删除本地的xxx分支,该分支没有任何未提交的内容
+git branch -D xxx——删除本地的xxx分支,该分支存在未提交的内容，强制删除
+git push origin --delete xxx——删除远程仓库的xxx分支
+
+
+
+可能存在的问题
+```css
+1:$ git push origin master
+Username for 'https://github.com': li_magisk
+Password for 'https://li_magisk@github.com':
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/l1919202265/Mynotes.git/'
+
+
+
+此问题由于GitHub 在2021年8月13日删除了对密码身份验证的支持，并建议采用其他身份验证方式。这意味着你不能再使用密码直接进行对远程仓库的推送。
+
+为了解决这个问题，你可以考虑以下两种方法来完成身份验证：
+
+使用 SSH 密钥身份验证：使用 SSH 密钥进行身份验证是一个更安全和推荐的方式。首先，确保你已经生成了 SSH 密钥对，并将公钥添加到你的 GitHub 帐户中。然后，修改你的远程仓库的 URL，将其替换为 SSH URL。可以使用以下命令来修改 URL：
+
+git remote set-url origin git@github.com:l1919202265/Mynotes.git
+ 
+这将把远程仓库的 URL 修改为使用 SSH 协议进行身份验证。
+
+使用访问令牌（Personal Access Token）进行身份验证：如果你不打算使用 SSH 密钥进行身份验证，你可以生成一个访问令牌并将其用作密码。访问令牌是一个用于访问 GitHub API 的身份验证凭证。你可以在你的 GitHub 帐户的设置中生成一个访问令牌。生成令牌后，在执行  git push  命令时，使用生成的令牌替代密码即可。
+
+Username for 'https://github.com': li_magisk
+Password for 'https://li_magisk@github.com':
+ 
+这些输入提示是等待你输入 GitHub 的用户名和密码。因为现在不再支持直接使用密码进行身份验证，所以你需要使用其他方法进行身份验证。
+```
