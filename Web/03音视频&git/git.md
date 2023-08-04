@@ -664,7 +664,21 @@ Password for 'https://li_magisk@github.com':
 这些输入提示是等待你输入 GitHub 的用户名和密码。因为现在不再支持直接使用密码进行身份验证，所以你需要使用其他方法进行身份验证。
 ```
 
+可能存在的问题
 
+```css
+//问题	错误提示
+error: failed to push some refs to 'https://gitee.com/linkmagisk/Find-House.git'
+
+
+//解释出现错误的主要原因是gitee(github)中的README.md文件不在本地代码目录中 
+此时我们要执行git pull --rebase origin master命令README.md拉到本地，
+任何然后执行git push origin master
+
+
+//解决办法
+git pull --rebase origin master
+```
 
 
 
