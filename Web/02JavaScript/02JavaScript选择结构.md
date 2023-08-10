@@ -128,6 +128,7 @@ switch (day){
 ?	表达式true的结果
 :	表达是false的结果
 var day = 2;
+//			  true/false
 day = day > 7 ? 1 : day
 ```
 

@@ -931,7 +931,8 @@ git push --force origin master
 
 
 
-可能存在的问题
+#### 可能存在的问题
+
 ```css
 1:$ git push origin master
 Username for 'https://github.com': li_magisk
