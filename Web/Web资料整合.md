@@ -7640,6 +7640,14 @@ Username for 'https://github.com': li_magisk
 Password for 'https://li_magisk@github.com':
  
 这些输入提示是等待你输入 GitHub 的用户名和密码。因为现在不再支持直接使用密码进行身份验证，所以你需要使用其他方法进行身份验证。
+    
+    github:
+    username:(token)
+    token/password:(token)
+    
+    gitee:
+    username:linkmagisk
+    tokenpassword:(token)
 ```
 
 可能存在的问题
