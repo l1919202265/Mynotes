@@ -222,7 +222,7 @@ loadImg(imgUrl3).then(res=>{
 })
 
 
-//then()	catch()		all()
+//then()	catch()		all()	finally
 Promise.all([
     loadImg(imgUrl),
     loadImg(imgUrl2),
@@ -237,7 +237,7 @@ Promise.all([
 })
 ```
 
-### async&await
+### async
 
 基本用法
 
@@ -269,7 +269,7 @@ fn1().then(res=>{
 })
 ```
 
-#### await
+### await
 
 await命令与async配合使用，正常情况下，await命令后面是一个Promise对象，返回该对象的结果，如果不是Promise对象，就直接返回对应的值。
 

@@ -75,7 +75,7 @@ var str = 'abcd';
 var reg = /\w*/;// 字母｜数字｜下划线 出现0 次 或者多次
 console.log(reg.test(str));  //true
 ```
-+一次或者多次
+ +	一次或者多次
 
 ```js
 var str = 'abcd';
@@ -313,7 +313,7 @@ console.log(reg.exec(str));
 var str='abc345efg';
 
 
-```
+```js
   var str='abc345efg';
   document.write(str.replace(/(\d)/g,'[$1]'));
 ```

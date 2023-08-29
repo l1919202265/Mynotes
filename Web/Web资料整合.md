@@ -2252,6 +2252,7 @@ BOM:Browser Object Model(浏览器对象模型)
 | 对象名称                     | 说明                                                         |
 | ---------------------------- | ------------------------------------------------------------ |
 | window                       | 窗口对象，可以用来控制当前窗口，或打开新的窗口。顶层对象，js中，最高的对象就是window |
+| document                     | dom对象                                                      |
 | screen                       | 屏幕对象，获取屏幕相关信息                                   |
 | navigator                    | 浏览器对象，通过这个对象可以判定用户所使用的浏览器           |
 | history                      | 地址对象，可以用来前进，或后退一个页面                       |
@@ -2334,8 +2335,6 @@ BOM:Browser Object Model(浏览器对象模型)
 
 #### navigator获取用户设备信息
 
-
-
 ```javascript
     // console.log(window.navigator.userAgent);
     //navigator.userAgent 可以获取到用户的设备  设备信息 设备版本
@@ -2416,9 +2415,9 @@ window.location.reload();
 
 | 弹窗   | 语法             | 说明                                                         |
 | ------ | ---------------- | ------------------------------------------------------------ |
-| 警告框 | window.alert()   | 用于确保用户可以得到某些信息                                 |
-| 确认框 | window.confirm() | 用于验证是否接受用户操作                                     |
-| 提示框 | window.prompt    | 用于提示用户在进入页面前输入某个值,a:提示信息,b:默认值【非必填项】 |
+| 警告框 | window.alert()   | 用于确保用户可以得到某些信息,window的方法                    |
+| 确认框 | window.confirm() | 用于验证是否接受用户操作,window的方法                        |
+| 提示框 | window.prompt()  | 用于提示用户在进入页面前输入某个值,a:提示信息,b:默认值【非必填项】,window的方法 |
 
 ```javascript
 function delete(){
@@ -4494,7 +4493,7 @@ console.log(reg.exec(str));
 var str='abc345efg';
 
 
-```
+```js
   var str='abc345efg';
   document.write(str.replace(/(\d)/g,'[$1]'));
 ```
@@ -4622,7 +4621,7 @@ JavaScript语言的设计者意识到，这时主线程完全可以不管IO设�
 
 
 
-假定：异步任务执行时出现一个同步任务，当前异步执行完后立刻执行同步任务	———————！！！————没有这种可能
+假定：异步任务执行时出现一个同步任务，当前异步执行完后立刻执行同步任务	——————— ！！！————没有这种可能
 
 ### 代码分析
 
