@@ -115,7 +115,7 @@ v-text相当于 元素的innerText();
 
 ### v-html:
 
-```
+```css
 v-text相当于 元素的innerText();
 
 设置元素的内容，同时会覆盖元素内的内容
@@ -499,8 +499,8 @@ v-on后面可以增加修饰符
 
 比如给上面例子中的out添加一个.once 则只弹出一次 out
 
-```
-<div @click.self.once='cli("out")'>
+```html
+<div @click.self.once='alert("out")'>
 ```
 
 

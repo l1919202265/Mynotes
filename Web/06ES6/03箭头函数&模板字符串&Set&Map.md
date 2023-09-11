@@ -34,7 +34,7 @@ let str = '<ul><li>我叫:'+person.name+'</li></li>我今年:'+person.age+'</li>
 改进方案：ES6中，引入模版字符串，来解决此问题；
 ```
 
-ES6中用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量
+ES6中用反引号（``）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量
 
 ```js
 //普通自字符串
@@ -84,24 +84,24 @@ ES6之前函数参数默认值的实现：
 
 ```js
    function fn(x,y){
-        y =y ||'world',
+        y = y ||'world';
         console.log(x,y);
     }
 
 
-    // fn('hello','wor');
+    // fn('hello','world');
     fn('hello');
     fn('hello','');
 ```
 
-Es6之后：
+ES6之后：
 
 ```js
 function fn(x,y='world'){
         console.log(x,y);
     }
 
-    fn('hello','wor');
+    fn('hello','world');
     fn('hello');
     fn('hello','');
 ```
@@ -142,8 +142,8 @@ add(2,0) // 3   原因是0在做 || 运算时，被对应转成了false, 所以�
 
 优化：
 function add(a,b){
-    a = typeof a=='undefined'?1:a;
-    b = typeof b=='undefined'?1:b;
+    a = typeof a == 'undefined' ? 1 : a;
+    b = typeof b == 'undefined' ? 1 : b;
     return a+b;
 }
 add();//2
@@ -344,13 +344,17 @@ var f1 = (x,y)=>{return (y+x)};
 
 ### 使用注意点
 
-（1）函数体内的`this`对象，并且没有自己的`this`，但是可以使用（继承）
+（1）箭头函数体内的`this`对象，并且没有自己的`this`，但是可以使用（继承）
 
-		 箭头函数自身没有this，它的this是父级普通函数的this。如果箭头函数式没有父级函数，则this指向window
+```css
+	 箭头函数自身没有this，它的this是父级普通函数的this。如果箭头函数式没有父级函数，则this指向window
+```
 
 （2）不可以当作构造函数，也就是说，不可以使用`new`命令，否则会抛出一个错误。
 
-			因为箭头函数内部没有this对象
+```css
+		因为箭头函数内部没有this对象
+```
 
 （3）不可以使用`arguments`对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
 
@@ -435,7 +439,6 @@ var f1 = (x,y)=>{return (y+x)};
 通过定时器修改div的背景颜色为红色
 
 ```javascript
-<script>
     var div_ = document.querySelector('div');
     div_.addEventListener('click',function(){    
         //无法完成 因为此时的this指向了window
@@ -445,13 +448,11 @@ var f1 = (x,y)=>{return (y+x)};
         },2000)
         
     })
-</script>
 ```
 
 指定当前对象  
 
 ```javascript
-<script>
     var div_ = document.querySelector('div');
     div_.addEventListener('click',function(){ 
         let that = this;   
@@ -462,7 +463,6 @@ var f1 = (x,y)=>{return (y+x)};
         },2000)
         
     })
-</script>
 ```
 
 
@@ -556,17 +556,19 @@ function 函数名(参数1，参数2...参数n)=>{  //代码段  }
 
 2.在自执行函数中，this指向window
 
-3.在定时器计时器中，this只想window
+3.在定时器，this指向window
 
-4.在事件调用函数中，this指向触发当前事件的对象
+4.计时器中，this指向window
 
-5.在对象的方法中 ，this 指向当前对象
+5.在事件调用函数中，this指向触发当前事件的对象
 
-6.在构造函数中使用this,this指向当前构造函数创建的实例。（new 构造函数得到的对象）
+6.在对象的方法中 ，this 指向当前对象
 
-7.在构造函数的原型对象中，this依然指向当前构造函数的实例对象
+7.在构造函数中使用this,this指向当前构造函数创建的实例。（new 构造函数得到的对象）
 
-8.箭头函数中，箭头函数本身是没有this的，它的this是父级普通函数的this。如果箭头函数没有父级函数，则this指向window
+8.在构造函数的原型对象中，this依然指向当前构造函数的实例对象
+
+9.箭头函数中，箭头函数本身是没有this的，它的this是父级普通函数的this。如果箭头函数没有父级函数，则this指向window
 
 
 

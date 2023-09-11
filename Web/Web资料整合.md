@@ -133,7 +133,7 @@ background:url(./a/b/c.jpg) no-repeat x轴px y轴px;
 	x轴向左负值 向右正值
 	y轴向上负值 向下正值
 	no-repeat;不平铺，不重复
-background-size:cover&contain&50px,50%;
+background-size:cover | contain | 50px | 50%;
 
 
 background-attachment{
@@ -164,9 +164,9 @@ text-indent:2em;缩进2个距离
 
 text-align:元素对齐方式;
 text-decoration:文本的装饰;
-text-decoration:overline color;上划线
-text-decoration:line-through color;中划线
-text-decoration:underline color;下划线
+text-decoration:overline black;上划线
+text-decoration:line-through black;中划线
+text-decoration:underline black;下划线
 
 a{
     text-decoration: none;取消a标签超链接下划线
@@ -213,7 +213,7 @@ right:右;
 }
 选择器范围越小，优先级越高
 id是唯一的，id名不能重复
-id选择器>类名选择器>标签选择器
+id选择器 > 类名选择器 > 标签选择器
 ```
 
 ```css
@@ -891,9 +891,9 @@ switch (day){
 
 ```javascript
 ?	表达式true的结果
-:	表达是false的结果
+:	表达式false的结果
 var day = 2;
-//			  true/false
+//		      true false
 day = day > 7 ? 1 : day
 ```
 
@@ -1120,14 +1120,6 @@ for(var item of arry){
         continue;
        }
 }
-
-
-
-
-
-for(var i=0){
-    
-}
 ```
 
 #### `toFixed()`
@@ -1195,7 +1187,7 @@ arry.sort(function(a,b){
 join();
 //数组名.join('');
 join('定义的规则')
-//通过一个分隔符 把数组的所有元素拼接称一个字符串
+//通过一个分隔符 把数组的所有元素拼接为:"一个字符串"
 join('-') //11-22-33-44
 
 join('***') //11***22***33***44
@@ -1270,7 +1262,7 @@ consle.log(arr1);
 ### splice()删除数组元素
 
 ```javascript
-splice(a,b，c)	//开始删除的下标 b删除的个数 c删除后插入的内容 会改变原数组
+splice(a,b，c)	//a开始删除的下标 b删除的个数 c删除后插入的内容 会改变原数组
 var a = [0,1,2,3,4,5];
 a.splice(2,2);
 console.log(a);
@@ -1348,14 +1340,14 @@ for(var item of arr){
 var time = new Date();
 console.log(time);
 
-//找年
+//年
 var year = time.getFullYear();
 console.log(year);
-//找月
+//月
 var month = time.getMonth() + 1;
 console.log(month);
 month = month < 10 ? ('0'+ month) : month;
-//找日
+//日
 var date = time.getDate;
 date = date < 10 ? ('0' + date) : date;
 console.log(date);
@@ -1363,7 +1355,7 @@ console.log(date);
 var hour  = time.getHours();
 hour = hour < 10 ? ('0' + hour) : hour;
 console.log(hour);
-//分钟
+//分
 var minute = time.getMinutes();
 minute = minute < 10 ? ('0' + minute) : minute;
 console.log(minute);
@@ -1485,10 +1477,10 @@ console.log(charAt(a));
 
 
 
-### concat(b)
+### a.concat(b)
 
 ```javascript
-concat(b)	//连接字符串，b:被合并对象名，和+的作用一样，不改变原字符串
+concat(b)	//连接字符串，b:被合并对象名;和+的作用一样，不改变原字符串
 str.concat(str2);
 str = str.concat(str2);
 concat(b) = str
@@ -1914,7 +1906,7 @@ function 函数名(){
 
 ```javascript
 函数的参数是按照顺序一一对应的
-如果形参没有值，结果及时undefined
+如果形参没有值，结果就是undefined
 ```
 
 
@@ -2154,7 +2146,7 @@ function fn(){
 ### 2、代码的执行阶段
 
 ```javascript
-//此阶段对变量进行赋值核函数的声明
+//此阶段对变量进行赋值和函数的声明
 
 //大白话：搞完步骤1以后，会对变量进行赋值。并从上向下执行
 
@@ -2577,7 +2569,7 @@ var timer = setInterval(distance,1000)
     }
 </style>
 <body>
-    <img src="./a/b/bj.jpg" alt="">
+    <img src="./a/b/bg.jpg" alt="">
     //广告
      <img class="ad" src="./a/b/ad.jpg" alt="">
     //<div class="mask"></div>
@@ -2941,13 +2933,13 @@ HTML DOM将HTML文档比作树结构。这种结构被称为节点树
 
 ### DOM2
 
-| 名称                              | 描述                                           |
-| --------------------------------- | ---------------------------------------------- |
-| document.createElement("元素名"); | 创建元素节点                                   |
-| document.createTextNode("文本");  | 创建文本节点                                   |
-| A.appendChild(B);                 | 把B节点追加至A节点的末尾，A节点就是父节点      |
-| parent.insertBefore(A,B);         | 把A节点插入到B节点之前。parent插入元素的父元素 |
-| a.cloneNode(deep);                | 复制某个指定的节点：a表示被复制的节点          |
+| 名称                              | 描述                                            |
+| --------------------------------- | ----------------------------------------------- |
+| document.createElement("元素名"); | 创建元素节点                                    |
+| document.createTextNode("文本");  | 创建文本节点                                    |
+| A.appendChild(B);                 | 把B节点追加至A节点元素内的末尾，A节点就是父节点 |
+| parent.insertBefore(A,B);         | 把A节点插入到B节点之前。parent插入元素的父元素  |
+| a.cloneNode(deep);                | 复制某个指定的节点：a表示被复制的节点           |
 
 克隆节点：a.cloneNode(deep);
 
@@ -3007,10 +2999,6 @@ box.insertBefore(div_,aDiv);
     list.insertBefore(li4,bInsert);
  list.insertBefore(li4,list.firstElementChild);    
 </script>
-
-
-
-
 ```
 
 #### 克隆节点
@@ -3167,7 +3155,7 @@ function del(that){
 //2、添加多个类名 覆盖html中的类名    
 div.className = 'a1 a2';//添加多个类名覆盖原类名
     
-//3、同是我保留 js设置的类名 和htm 的类名 
+//3、同是保留 js设置的类名 和html的类名 
     div.className += ' a1'
     div.id = 'ids';//添加id
     console.log(div.className);//获取类名
@@ -3188,6 +3176,8 @@ div.className = 'a1 a2';//添加多个类名覆盖原类名
 | scrollLeft   | 返回匹配元素的滚动条的水平位置                               |
 | clientWidth  | 返回元素的可见宽度，不包含边框                               |
 | clientHeight | 返回元素的可见高度，不包含边框                               |
+| clientX      |                                                              |
+| clientY      |                                                              |
 
 ```html
 <html>
@@ -3453,9 +3443,11 @@ offsetParent:
 
 ### 事件流
 
-//所有事件默认都是冒泡型
+事件流分为冒泡型和捕获型
 
-//捕获型事件流 只有在addEventListener事件监听第三个参数为true的时候才会触发
+所有事件默认都是冒泡型
+
+捕获型事件流 只有在addEventListener事件监听第三个参数为true的时候才会触发
 
 嵌套的父子元素 上级和下级 都绑定了相同事件
 
@@ -3914,15 +3906,15 @@ document.onclick=function(e){
 | 属性          | 描述                                                         |
 | ------------- | ------------------------------------------------------------ |
 | altKey        | 返回当事件被触发时“ALT”是否被按下                            |
+| metaKey       | 返回当事件被触发时，“meta”键是否被按下。window键，command键  |
+| ctrlKey       | 返回当事件被触发时，“CTRL”键是否被按下                       |
+| shiftKey      | 返回当事件被触发时，“SHIFT”键是否被按下                      |
 | button        | 返回当事件被触发时，哪个鼠标按钮被点击。0左键 1中间键 2右键  |
 | clientX       | 返回当事件被触发时鼠标指针相对于浏览器页面（或客户区）的水平坐标客户区指的浏览器的有效区域【dom左】 |
 | clientY       | 返回当事件被触发时鼠标指针相对于浏览器页面（或客户区）的垂直坐标客户区指的浏览器的有效区域【dom上】 |
-| ctrlKey       | 返回当事件被触发时，“CTRL”键是否被按下                       |
-| metaKey       | 返回当事件被触发时，“meta”键是否被按下。window键，command键  |
 | relatedTarget | 返回与事件的目标节点相关的节点。                             |
 | screenX       | 返回当某个事件被触发时，鼠标指针的水平坐标。鼠标想丢与显示器屏幕的X轴的位置 |
 | screenY       | 返回当某个事件被触发时，鼠标指针的垂直坐标。鼠标相对于显示器的Y轴的位置 |
-| shiftKey      | 返回当事件被触发时，“SHIFT”键是否被按下                      |
 | pageX         | 返回的值：当前点击的点，距离整个页面最左边的距离             |
 | pageY         | 返回的值：当前点击的点，距离整个页面最上面边的距离【e.clientY+scrollTop】 |
 
@@ -3998,8 +3990,10 @@ document.oncontextmenu=function(){
 
 ```javascript
 document.oncontextmenu=function(){
+    
     e.preventDefault();//非ie
     e.returnValue=false;//兼容ie
+    
 	alert('右键');
      //1、e.preventDefault();//非ie
     //2、e.returnValue=false;//兼容ie
@@ -4508,7 +4502,7 @@ var str='abc345efg';
 
 单线程就是：指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。
 
-js语言最大的特点既是单线程
+js语言最大的特点就是单线程
 
 同步任务执行完以后 才会执行异步任务
 
@@ -4589,7 +4583,7 @@ JavaScript语言的设计者意识到，这时主线程完全可以不管IO设�
 所有的任务可以分为两种
 
 一种是同步任务（synchronous）
-另一种是异步任务（asychronous）
+另一种是异步任务（asynchronous）
 
 同步任务指的是：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务
 
